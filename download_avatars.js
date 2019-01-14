@@ -11,7 +11,6 @@ if(owner === undefined || repo === undefined){
   var GITHUB_TOKEN = secret['GITHUB_TOKEN'];;
   console.log('Welcome to the GitHub Avatar Downloader!');
 
-
   function getRepoContributors(repoOwner, repoName, cb) {
     var options = {
       url: "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/contributors",
@@ -27,8 +26,6 @@ if(owner === undefined || repo === undefined){
     });
   }
 
-
-
   function downloadImageByURL(url, filePath) {
     request.get(url)
     .on('error', function(err){
@@ -43,7 +40,7 @@ if(owner === undefined || repo === undefined){
   }
 
 
-  getRepoContributors("jquery", "jquery", function(err, result) {
+  getRepoContributors(owner, repo, function(err, result) {
     console.log("Errors:", err);
     result.forEach(function(element){
       var url = element['avatar_url'];
