@@ -19,7 +19,6 @@ if(owner === undefined || repo === undefined){
         'Authorization': GITHUB_TOKEN
       }
     };
-
     request(options, function(err, res, body) {
       var data = JSON.parse(body);
       cb(err, data);
@@ -50,3 +49,4 @@ if(owner === undefined || repo === undefined){
     });
   });
 }
+
